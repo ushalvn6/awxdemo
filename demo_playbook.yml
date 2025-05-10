@@ -1,6 +1,5 @@
 - name: Gather Info
-  hosts:
-  - cisco_nxos
+  hosts: all
   connection: network_cli
   gather_facts: yes
   ignore_errors: yes
