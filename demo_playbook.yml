@@ -1,0 +1,15 @@
+- name: Gather Info
+  hosts:
+  - cisco_nxos
+  connection: network_cli
+  gather_facts: yes
+  ignore_errors: yes
+  tasks:
+  - name: Get Version Info (NXOS)
+    cli_command:
+      command: show version
+    register: version_nxos_output
+    when: device_os == 'NXOS'
+
+  - debug:
+      msg: "{{  version_nxos_output.stdout }}"
