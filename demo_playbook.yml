@@ -3,6 +3,8 @@
   connection: network_cli
   gather_facts: yes
   ignore_errors: yes
+  vars:
+    ansible_network_os: cisco.nxos.nxos
   tasks:
   - name: Get Version Info (NXOS)
     cli_command:
