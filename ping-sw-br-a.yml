@@ -1,0 +1,30 @@
+---
+- name: Ping Branch A switches from localhost
+  hosts: localhost
+  gather_facts: no
+  ignore_errors: yes
+
+  tasks:
+    - name: Ping 10.10.0.131
+      ansible.builtin.shell: ping -c 4 10.10.0.131
+      register: ping_result_131
+
+    - name: Display result for 10.10.0.131
+      debug:
+        var: ping_result_131.stdout_lines
+
+    - name: Ping 10.10.0.132
+      ansible.builtin.shell: ping -c 4 10.10.0.132
+      register: ping_result_132
+
+    - name: Display result for 10.10.0.132
+      debug:
+        var: ping_result_132.stdout_lines
+
+    - name: Ping 10.10.0.135
+      ansible.builtin.shell: ping -c 4 10.10.0.135
+      register: ping_result_135
+
+    - name: Display result for 10.10.0.135
+      debug:
+        var: ping_result_135.stdout_lines
